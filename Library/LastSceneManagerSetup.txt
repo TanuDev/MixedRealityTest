@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/MixedRealityTest.unity
+- path: Assets/Scenes/MixedRealityTest.unity
   isLoaded: 1
   isActive: 1
