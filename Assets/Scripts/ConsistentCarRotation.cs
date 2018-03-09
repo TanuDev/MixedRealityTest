@@ -6,6 +6,8 @@ public class ConsistentCarRotation : MonoBehaviour {
 
     private UserController controller;
 
+    private float defaultYOffset = -0.888f;
+
     private void Awake()
     {
         controller = GetComponentInParent<UserController>();
@@ -13,14 +15,11 @@ public class ConsistentCarRotation : MonoBehaviour {
 
     private void Update()
     {
-        var isRunned = controller.isRunned;
-        if(!isRunned)
-        {
-            return;
-        }
-
         var targetRotation = Camera.main.transform.localRotation.eulerAngles;
         transform.localRotation = Quaternion.Euler(transform.localRotation.eulerAngles.x, targetRotation.y, transform.localRotation.eulerAngles.z);
 
+        var targetPosition = Camera.main.transform.localPosition;
+
+        transform.localPosition = new Vector3(transform.localPosition.x, (targetPosition.y + defaultYOffset), transform.localPosition.z);
     }
 }

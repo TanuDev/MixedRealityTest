@@ -15,7 +15,7 @@ public class UserController : MonoBehaviour, IInputClickHandler {
 
     private enum Speed
     {
-        verySlow, slow, high, veryHigh
+        verySlow, slow, high, veryHigh, max
     };
 
     Speed currentSpeed = Speed.verySlow;
@@ -25,7 +25,8 @@ public class UserController : MonoBehaviour, IInputClickHandler {
         {Speed.verySlow, 0.1f},
         {Speed.slow, 0.3f},
         {Speed.high, 0.7f},
-        {Speed.veryHigh, 1.0f}
+        {Speed.veryHigh, 1.0f},
+        {Speed.max, 3.0f }
     };
 
     private void Awake()
@@ -90,7 +91,7 @@ public class UserController : MonoBehaviour, IInputClickHandler {
                 return;
             }
 
-            if (currentSpeed == Speed.veryHigh)
+            if (currentSpeed == Speed.max)
             {
                 isRunned = false;
                 currentSpeed = Speed.verySlow;
@@ -118,7 +119,7 @@ public class UserController : MonoBehaviour, IInputClickHandler {
                 return;
             }
 
-            if (currentSpeed == Speed.veryHigh)
+            if (currentSpeed == Speed.max)
             {
                 isRunned = false;
                 currentSpeed = Speed.verySlow;
